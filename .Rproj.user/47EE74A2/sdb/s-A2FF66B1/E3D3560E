@@ -1,17 +1,18 @@
 {
     "collab_server" : "",
-    "contents" : "MLCapstonePresentation\n========================================================\nauthor: \ndate: \nautosize: true\n\nFirst Slide\n========================================================\n\nFor more details on authoring R presentations please visit <https://support.rstudio.com/hc/en-us/articles/200486468>.\n\n- Bullet 1\n- Bullet 2\n- Bullet 3\n\nSlide With Code\n========================================================\n\n```{r}\nsummary(cars)\n```\n\nSlide With Plot\n========================================================\n\n```{r, echo=FALSE}\nplot(cars)\n```\n",
+    "contents" : "Next Word Prediction\n========================================================\nauthor: Marcia Lazo \ndate: October 2016\nautosize: true\nfont-import: https://fonts.googleapis.com/css?family=Open+Sans+Condensed\nfont-family: 'Open+Sans+Condensed'\n\nSummary - About the Project\n========================================================\n<small>This project was created for the Data Science Capstone, part of the Coursera Data Science specialization, presented by Johns Hopkins University (JHU). JHU worked with Swiftkey. Swiftkey is an application for mobile devices that predicts the next word that a user will type. \nThe goal of this project is to create a next word prediction algorithm using the data provided by Swiftkey through Coursera, and to use that algorithm in an shiny application online where it can be tried out. \n</small>\nBuilding the Model\n========================================================\nTo build the model I first downloaded the three sets of data provided by Coursera. The data sets consist of Blogs, News and Twitter data.\n\nI read the data in and cleaned it up, removing punctuation, numbers, any Twitter symbols such as @ and turned all of the data into lower case. I combined all of the data and randomly selected 2% of it. \n\nI created n-grams, including single words, bigrams, trigrams and quadgrams, determined the frequency of each of these grams in the data, sorted the ngrams by most to least frequent, and saved the data out to be used in the application.\n\nTechniques used for Prediction\n========================================================\n\n1. Read in the input phrase, clean it up as was done with the sample data and count the number of words\n2. At each step take the final n words, n = 3 or fewer, and compare them to the first n words in the n+1 size ngrams\n  + if succesful return the final word from the most frequent matching ngram</small>\n3. If step two fails take the final n-1 words from the phrase and compare them to the first n-1 words in the n size ngrams, returning the final word from the most frequent matching ngram\n  + Repeat until a match is found, or\n4. If no matches are found in any of the ngrams return the most frequent single word from the sample corpus.\n\nUsing the Shiny Application\n========================================================\nTo use the shiny app enter a phrase in the box in the left panel where it says Enter your text here. Hit Enter on your keyboard\n![\"Shiny App Image\"][id]\n[id]: figures/myShinyAppImage2.png \"My Shiny App\"\nClick on the \"About\" tab to read about the application\n\nThe app can be found here:\n[my shiny app](https://mlazo.shinyapps.io/MLazoCapstoneFinalProj/)\n",
     "created" : 1475637925804.000,
     "dirty" : false,
     "encoding" : "UTF-8",
     "folds" : "",
-    "hash" : "3512952835",
+    "hash" : "3613166054",
     "id" : "E3D3560E",
-    "lastKnownWriteTime" : 1475373283,
-    "last_content_update" : 1475373283,
+    "lastKnownWriteTime" : 1476045999,
+    "last_content_update" : 1476045999405,
     "path" : "~/Documents/DataScienceCoursera/MLazoCapstoneFinalProj/MLCapstonePresentation.Rpres",
     "project_path" : "MLCapstonePresentation.Rpres",
     "properties" : {
+        "docOutlineVisible" : "0"
     },
     "relative_order" : 4,
     "source_on_save" : false,

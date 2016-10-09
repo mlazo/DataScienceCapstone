@@ -11,7 +11,7 @@ suppressPackageStartupMessages(c(
         ))
 
 shinyUI(navbarPage("Coursera Data Science Capstone", 
-                   theme = shinytheme("Spacelab"),
+                   theme = shinytheme("spacelab"),
                    
 ############################### ~~~~~~~~1~~~~~~~~ ##############################  
 ## Tab 1 - Prediction

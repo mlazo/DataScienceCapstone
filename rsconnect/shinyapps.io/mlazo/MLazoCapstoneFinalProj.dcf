@@ -1,0 +1,10 @@
+name: MLazoCapstoneFinalProj
+account: mlazo
+server: shinyapps.io
+appId: 130601
+bundleId: 581362
+url: https://mlazo.shinyapps.io/MLazoCapstoneFinalProj/
+when: 1476040221.35145
+asMultiple: FALSE
+asStatic: FALSE
+ignoredFiles: MLCapstonePresentation.md|MLCapstonePresentation.Rpres
