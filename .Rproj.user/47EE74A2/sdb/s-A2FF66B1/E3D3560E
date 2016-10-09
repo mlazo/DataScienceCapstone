@@ -1,0 +1,20 @@
+{
+    "collab_server" : "",
+    "contents" : "MLCapstonePresentation\n========================================================\nauthor: \ndate: \nautosize: true\n\nFirst Slide\n========================================================\n\nFor more details on authoring R presentations please visit <https://support.rstudio.com/hc/en-us/articles/200486468>.\n\n- Bullet 1\n- Bullet 2\n- Bullet 3\n\nSlide With Code\n========================================================\n\n```{r}\nsummary(cars)\n```\n\nSlide With Plot\n========================================================\n\n```{r, echo=FALSE}\nplot(cars)\n```\n",
+    "created" : 1475637925804.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3512952835",
+    "id" : "E3D3560E",
+    "lastKnownWriteTime" : 1475373283,
+    "last_content_update" : 1475373283,
+    "path" : "~/Documents/DataScienceCoursera/MLazoCapstoneFinalProj/MLCapstonePresentation.Rpres",
+    "project_path" : "MLCapstonePresentation.Rpres",
+    "properties" : {
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_presentation"
+}

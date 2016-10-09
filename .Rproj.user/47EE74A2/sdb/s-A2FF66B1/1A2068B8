@@ -1,0 +1,21 @@
+{
+    "collab_server" : "",
+    "contents" : "################# ~~~~~~~~~~~~~~~~~ ######## ~~~~~~~~~~~~~~~~~ #################\n##                                                                            ##\n##                        Data Science Capstone Project                       ##\n##                                                                            ##            \n##                        Marcia Lazo                                         ##\n##                                                                            ##\n################# ~~~~~~~~~~~~~~~~~ ######## ~~~~~~~~~~~~~~~~~ #################\n\nsuppressPackageStartupMessages(c(\n        library(shinythemes),\n        library(shiny),\n        library(tm),\n        library(stringr),\n        library(markdown),\n        library(stylo)))\n\nsource(\"./cleanAndPredict.R\")\n\n\nshinyServer(function(input, output) {\n        \n   wordPrediction <- reactive({\n                text <- input$text\n                input <- cleanInput(text)\n                #wordCount <- length(textInput)\n                wordPrediction <- PredNextTerm(input)})\n        wordPrediction\n        output$predictedWord <- renderPrint(wordPrediction())\n        #output$predictedWord <- renderPrint(wordPrediction())\n        output$yourText <- renderText({ input$text }, quoted = FALSE)\n}\n)",
+    "created" : 1475642556556.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "2070117016",
+    "id" : "1A2068B8",
+    "lastKnownWriteTime" : 1476025139,
+    "last_content_update" : 1476025139071,
+    "path" : "~/Documents/DataScienceCoursera/MLazoCapstoneFinalProj/server.R",
+    "project_path" : "server.R",
+    "properties" : {
+        "source_window_id" : ""
+    },
+    "relative_order" : 4,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}
