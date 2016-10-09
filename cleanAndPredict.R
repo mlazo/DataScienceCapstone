@@ -1,9 +1,6 @@
-########### ~~~~~~~~~~~~~~~~~ ######## ~~~~~~~~~~~~~~~~~ ###########
-##                                                                ##
-##                  Coursera Data Science Capstone Project        ##
-##                  Marcia Lazo                                   ##
-##                                                                ##
-########### ~~~~~~~~~~~~~~~~~ ######## ~~~~~~~~~~~~~~~~~ ###########
+## Coursera Data Science Capstone Project
+## Marcia Lazo
+
 
 suppressPackageStartupMessages(c(
         library(shinythemes),
@@ -51,49 +48,41 @@ cleanInput <- function(text){
 
 PredNextTerm <- function(inStr)
 {
-  assign("mesg", "in PredNextTerm", envir = .GlobalEnv)
-  #inStr <- cleanInput(inStr)
   inStr <- unlist(strsplit(inStr, split=" "));
   inStrLen <- length(inStr);
   
-  nxtTermFound <- FALSE;
-  #predNxtTerm <- as.character(NULL);
+  Found <- FALSE;
   predNxtTerm <- as.character("Nothing entered yet");
-  if (inStrLen >= 3 & !nxtTermFound)
+  if (inStrLen >= 3 & !Found)
   {
     # Take the input string and tokenize it, separating tokesn by a single space 
-    inStr1 <- paste(inStr[(inStrLen-2):inStrLen], collapse=" ");
-    # Subset the Four Gram data frame 
-    searchStr <- paste("^",inStr1, sep = "");
+    input <- paste(inStr[(inStrLen-2):inStrLen], collapse=" ");
+    searchStr <- paste("^",input, sep = "");
+    #Find all instances where the final three words from the phrase are the first three words in a quadgram
     quadgramsTemp <- subset(quadgrams, grepl(searchStr, quadgrams[,1]))
-    #quadgramsTemp <- quadgrams[grep (searchStr, quadgrams[,1]), ];
-    #print(quadgramsTemp)
-    # Check to see if any matching record returned
+    # Check to see if any matching records were found
     if ( length(quadgramsTemp[, 1]) > 1 )
     {
       predNxtTerm <- quadgramsTemp[1,1];
-      nxtTermFound <- TRUE;
+      Found <- TRUE;
     }
     quadgramsTemp <- NULL;
   }
-  if (inStrLen >= 2 & !nxtTermFound){
+  # if that failed find all instances where the final two words from the phrase are the first two words in a trigram
+  if (inStrLen >= 2 & !Found){
     inStr1 <- paste(inStr[(inStrLen-1):inStrLen], collapse=" ");
-    # Subset the Four Gram data frame 
     searchStr <- paste("^",inStr1, sep = ""); 
     trigramsTemp <- subset(trigrams, grepl(searchStr, trigrams[,1]))
-    #print(trigramsTemp[1][1])
-    # Check to see if any matching record returned
     if ( length(trigramsTemp[, 1]) > 1 )
     {
       predNxtTerm <- trigramsTemp[1,1];
-      nxtTermFound <- TRUE;
+      Found <- TRUE;
     }
     trigramsTemp <- NULL;
   }
-  if (inStrLen >= 1 & !nxtTermFound) {
+  # if that failed find all instances where the final (or only) word from the phrase is the first word in a bigram
+  if (inStrLen >= 1 & !Found){
     inputStr <- inStr[inStrLen]
-    
-    # search and ubset the bigram data frame
     searchStr <- paste("^", inputStr, sep = "")
     bigramsTemp <- subset(bigrams, grepl(searchStr, bigrams[, 1]))
     #print(bigramsTemp)
@@ -101,11 +90,11 @@ PredNextTerm <- function(inStr)
     if (length(bigramsTemp[, 1]) > 1)
     {
       predNxtTerm <- bigramsTemp[1, 1]
-      nxtTermFound <- TRUE
+      Found <- TRUE
     }
     bigramsTemp <- NULL
   }
-  if(!nxtTermFound & inStrLen > 0)
+  if(!Found & inStrLen > 0)
   {
     predNxtTerm <- unigrams[1,1];
   }

@@ -11,7 +11,6 @@ suppressPackageStartupMessages(c(
         ))
 
 shinyUI(navbarPage("Coursera Data Science Capstone", 
-#shinyUI(fluidPage("Coursera Data Science Capstone",                    
                    theme = shinytheme("Spacelab"),
                    
 ############################### ~~~~~~~~1~~~~~~~~ ##############################  
@@ -28,7 +27,7 @@ tabPanel("Predicting the Next Word",
                                br()
                     )),
                     mainPanel(
-                      h4("The predicted next word:"),
+                      h4("End of phrase with the predicted next word:"),
                       tags$span(style="color:darkred",
                                 tags$strong(tags$h3(textOutput("predictedWord")))),
                       br(),
